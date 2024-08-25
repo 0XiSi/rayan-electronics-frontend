@@ -108,22 +108,23 @@ export default function Home() {
             <div className="flex justify-center items-center">
               <div className="flex flex-wrap gap-6 justify-center">
                 {products.map((product) => (
-                  <div key={product.id} className="relative">
-                    <ProductCard
-                      imageSrc={product.image}
-                      label={product.name}
-                      price={product.price}
-                      description={product.description}
-                      id={product.id}
-                      rating={product.rating}
-                      numReviews={product.numReviews}
-                      countInStock={product.countInStock}
-                      discount={product.discount}
-                    />
-                  </div>
+                  <Link key={product.id} href={`/product/${product.id}`}>
+                    <div className="relative">
+                      <ProductCard
+                        imageSrc={product.image}
+                        label={product.name}
+                        price={product.price}
+                        description={product.description}
+                        id={product.id}
+                        rating={product.rating}
+                        numReviews={product.numReviews}
+                        countInStock={product.countInStock}
+                        discount={product.discount}
+                      />
+                    </div>
+                  </Link>
                 ))}
               </div>
-
             </div>
           </MaxWidthWrapper>
         </section>

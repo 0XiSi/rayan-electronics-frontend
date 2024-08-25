@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addItem, clearCart, removeItem} from "@/redux/slices/CartSlice";
 import {useEffect, useState} from "react";
 import {vazirMatn} from "next-persian-fonts";
-import {X} from "lucide-react";
+import {Smile, X} from "lucide-react";
 import {useRouter} from "next/navigation";
 import {
   Breadcrumb,
@@ -53,7 +53,7 @@ export default function Cart() {
     </Breadcrumb>
       <div className="bg-white p-1 rounded-lg shadow-xl text-center h-full">
         {cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <div className={'flex flex-row justify-center m-10 text-blue-500'}><Smile className={'mx-2'}/><p className={''}>اول یچیزی بزار اینجا</p></div>
         ) : (
           <div className={'flex'}>
             <div className="w-1/4">
@@ -61,7 +61,9 @@ export default function Cart() {
               <p className="text-lg font-semibold">جمع کل</p>
               <p className="text-xl text-blue-600">
                 {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}{' '}
-                <sup className="text-gray-600">تومان</sup>
+                <svg className="text-gray-500 font-light mr-1 scale-110" width="14" height="14">
+                  <use href="#toman"/>
+                </svg>
               </p>
               {/* Add any other relevant information or buttons */}
               <button

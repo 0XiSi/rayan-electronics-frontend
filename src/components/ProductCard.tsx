@@ -15,7 +15,7 @@ const ProductCard = ({ imageSrc, label, price, description, id, rating, numRevie
     <div className="bg-gradient-to-t from-white to-blue-500 from-10% rounded-lg drop-shadow-2xl shadow-l shadow-gray-200 overflow-hidden w-80 transition-all hover:scale-110 ">
       <div className="relative">
         <Image
-          src={imageSrc}
+          src={imageSrc[0]}
           alt={label}
           className="object-cover"
           width={320}
@@ -34,7 +34,7 @@ const ProductCard = ({ imageSrc, label, price, description, id, rating, numRevie
           </h3>
           <ProductRate rate={rating} count={numReviews}/>
         </div>
-        <p className="text-gray-500 mt-2">{description}</p>
+        {/*<p className="text-gray-500 mt-2">{description}</p>*/}
 
         <div className="text-blue-500 mt-2 font-black flex justify-between items-center">
           <div className="flex items-center">
