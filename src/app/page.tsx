@@ -52,11 +52,11 @@ export default function Home() {
                 </ul>
                 <div className='mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5 z-10'>
                   <div className='flex -space-x-4'>
-                    <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-1.png"
+                    <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-1.jpg"
                          alt='user img'/>
-                    <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-2.png"
+                    <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-2.jpg"
                          alt='user img'/>
-                    <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-3.png"
+                    <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-3.jpg"
                          alt='user img'/>
                     <img className='inline-block h-10 w-10 rounded-full ring-2 ring-slate-100' src="/users/user-4.jpg"
                          alt='user img'/>
@@ -152,7 +152,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className='flex gap-4 mt-2'>
-                  <img src="/users/user-1.png" className='rounded-full h-12 w-12' alt="user"/>
+                  <img src="/users/user-1.jpg" className='rounded-full h-12 w-12' alt="user"/>
                   <div className='flex flex-col'>
                     <p className='font-semibold text-gray-500'>اسکندر</p>
                     <div className='flex gap-1.5 items-center text-zinc-600'>
@@ -178,7 +178,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className='flex gap-4 mt-2'>
-                  <img src="/users/user-2.png" className='rounded-full h-12 w-12' alt="user"/>
+                  <img src="/users/user-2.jpg" className='rounded-full h-12 w-12' alt="user"/>
                   <div className='flex flex-col'>
                     <p className='font-semibold'>صغری</p>
                     <div className='flex gap-1.5 items-center text-zinc-600'>

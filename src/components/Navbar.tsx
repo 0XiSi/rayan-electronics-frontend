@@ -11,7 +11,7 @@ export default function Navbar()  {
       <MaxWidthWrapper>
         <div className='flex h-20 items-center justify-between border-b border-zinc-200'>
           <Link href='/' className='flex z-40 font-semibold'>
-            <span className='text-blue-500'>Rayan</span>Electronics
+            <span className='text-blue-500'>Rayan</span>Electro
           </Link>
 
           <div className='h-full flex items-center space-x-4'>
