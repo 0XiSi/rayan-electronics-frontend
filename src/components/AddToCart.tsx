@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { addItem, removeItem } from '@/redux/slices/CartSlice';
-import {ShoppingCart} from "lucide-react";
-import {RootState} from "@/redux/store"; // Adjust the import path as necessary
+import { ShoppingCart } from 'lucide-react';
+import { RootState } from '@/redux/store'; // Adjust the import path as necessary
 
 export default function AddToCart({ product }) {
   const dispatch = useDispatch();
@@ -14,10 +14,10 @@ export default function AddToCart({ product }) {
   const [increasePerClick, setIncreasePerClick] = useState(true); // Handle the logic to decide whether to increase per click
   const [redirect, setRedirect] = useState(false); // Handle whether to redirect after adding to cart
 
-  const addToCartHandler = async () => {
+  const addToCartHandler = (event) => {
+    event.stopPropagation(); // Prevent click event from propagating to the parent
     let newQty = qty;
     const existItem = cartItems.find((x) => x.id === product.id);
-    console.log(product)
 
     if (existItem) {
       if (existItem.quantity + newQty <= product.countInStock) {
@@ -37,21 +37,11 @@ export default function AddToCart({ product }) {
   }, [product]);
 
   return (
-    <>
-      <div>
-        {product.countInStock > 0 ? (
-          <ShoppingCart
-            className="cursor-pointer text-blue-500 hover:text-blue-700"
-            onClick={addToCartHandler}
-            size={24} // Adjust size as necessary
-          />
-        ) : (
-          <ShoppingCart
-            className="text-gray-400 cursor-not-allowed"
-            size={24} // Adjust size as necessary
-          />
-        )}
-      </div>
-    </>
+    <div onClick={addToCartHandler} className={product.countInStock > 0 ? "cursor-pointer" : "text-gray-400 cursor-not-allowed"}>
+      <ShoppingCart
+        className="text-blue-500 hover:text-blue-700"
+        size={24}
+      />
+    </div>
   );
 }
