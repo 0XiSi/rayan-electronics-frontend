@@ -108,8 +108,7 @@ export default function Home() {
             <div className="flex justify-center items-center">
               <div className="flex flex-wrap gap-6 justify-center">
                 {products.map((product) => (
-                  <Link key={product.id} href={`/product/${product.id}`}>
-                    <div className="relative">
+                    <div className="relative" key={product.key}>
                       <ProductCard
                         imageSrc={product.image}
                         label={product.name}
@@ -122,7 +121,6 @@ export default function Home() {
                         discount={product.discount}
                       />
                     </div>
-                  </Link>
                 ))}
               </div>
             </div>

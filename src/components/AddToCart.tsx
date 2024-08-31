@@ -8,7 +8,7 @@ import {RootState} from "@/redux/store"; // Adjust the import path as necessary
 
 export default function AddToCart({ product }) {
   const dispatch = useDispatch();
-  const { items: cartItems } = useSelector((state: RootState) => state.cart.items);
+  const cartItems = useSelector((state: RootState) => state.cart.items || []);
   const router = useRouter();
   const [qty, setQty] = useState(1);
   const [increasePerClick, setIncreasePerClick] = useState(true); // Handle the logic to decide whether to increase per click

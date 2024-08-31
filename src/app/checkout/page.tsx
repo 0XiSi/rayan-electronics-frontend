@@ -73,8 +73,8 @@ export default function Checkout() {
       <Breadcrumb className={'flex flex-col md:flex-row md:justify-end justify-end items-end m-10'}>
         <BreadcrumbList className={'text-right md:text-right pb-2 md:pb-0'}>
           <BreadcrumbItem>
-             <BreadcrumbLink>
-               <Link href="/cart">سبد خرید</Link>
+             <BreadcrumbLink href={'/cart'}>
+               سبد خرید
              </BreadcrumbLink>
          </BreadcrumbItem>
           <BreadcrumbSeparator />

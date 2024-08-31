@@ -32,7 +32,7 @@ export default function Cart() {
 
   return (
     <div className={`${vazirMatn.className} relative m-20`}>
-      <Breadcrumb className={'flex flex-col md:flex-row md:justify-end justify-end items-end  m-10'}>
+      <Breadcrumb className={'flex flex-col md:flex-row md:justify-end justify-end items-end m-10'}>
         <BreadcrumbList className={'text-right md:text-right pb-2 md:pb-0'}>
           <BreadcrumbItem>
             <BreadcrumbPage>
@@ -41,8 +41,8 @@ export default function Cart() {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink>
-            <Link href="/checkout">تسویه حساب</Link>
+          <BreadcrumbLink href={"/checkout"}>
+            تسویه حساب
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
@@ -56,19 +56,17 @@ export default function Cart() {
           <div className={'flex flex-row justify-center m-10 text-blue-500'}><Smile className={'mx-2'}/><p className={''}>اول یچیزی بزار اینجا</p></div>
         ) : (
           <div className={'flex'}>
-            <div className="w-1/4">
+            <div className="w-1/4 flex flex-col items-center">
               {/* Display the final price */}
               <p className="text-lg font-semibold">جمع کل</p>
-              <p className="text-xl text-blue-600">
-                {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}{' '}
-                <svg className="text-gray-500 font-light mr-1 scale-110" width="14" height="14">
-                  <use href="#toman"/>
-                </svg>
-              </p>
+                <p className="text-xl text-blue-600 flex flex-row items-center mb-8">
+                  <svg className="text-gray-500 font-light mr-1 h-5 w-5"><use href="#toman"/></svg>
+                  {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}{' '}
+                </p>
               {/* Add any other relevant information or buttons */}
               <button
                 onClick={() => router.replace('/checkout')}
-                className="m-4 bg-lime-500 text-white px-4 py-2 rounded-lg"
+                className="m-4 bg-lime-500 text-white px-5 py-2 rounded-lg w-3/4"
               >
                 ادامه
               </button>
@@ -117,7 +115,7 @@ export default function Cart() {
                       <img
                         src={item.imageSrc}
                         alt={item.name}
-                        className="w-16 h-16 object-cover"
+                        className="w-16 h-16 object-cover lg:invisible"
                       />
                       <button
                         onClick={() => dispatch(removeItem(item.id))}

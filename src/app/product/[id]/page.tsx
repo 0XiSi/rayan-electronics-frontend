@@ -8,6 +8,8 @@ import ProductRate from "@/components/ProductRate";import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import {Card, CardContent} from "@/components/ui/card";
+import {ChevronLeft} from "lucide-react";
+import {Separator} from "@/components/ui/separator";
 
 export default function ProductDetails({params}) {
   const id = params.id;
@@ -21,9 +23,9 @@ export default function ProductDetails({params}) {
   }
 
   return (
-    <div className="w-fit mx-auto rounded-xl my-5 bg-gray-100 drop-shadow-2xl shadow-xl shadow-gray-200 flex flex-row-reverse p-5">
-      {/*<img src={product.image} alt={product.name} className="w-full h-96 object-cover rounded-md" />*/}
-      <Carousel className="w-fit max-w-xs m-10">
+    <div
+      className="w-fit mx-auto rounded-xl my-5 bg-gray-100 drop-shadow-2xl shadow-xl shadow-gray-200 flex flex-col lg:flex-row-reverse p-0 lg:p-5 items-center">
+      <Carousel className="w-screen max-w-xs m-10 lg:w-1/2">
         <CarouselContent>
           {Array.from({length: imgLen}).map((_, index) => (
             <CarouselItem key={index}>
@@ -37,35 +39,49 @@ export default function ProductDetails({params}) {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+        <CarouselPrevious/>
+        <CarouselNext/>
+      </Carousel>
       <div className={'p-5'}>
         <h1 className="text-4xl font-bold mt-6 flex justify-end">{product.name}</h1>
         <div className="mt-6 flex justify-end flex-col">
-        <span className="text-3xl font-bold text-gray-900 flex flex-row justify-end items-center gap-x-10">
-
-          <div className={'flex flex-row items-center justify-start'}>
-            <svg
-            className="text-gray-500 font-light mr-1 scale-150" width="14" height="14"><use href="#toman"/>
-            </svg>
-          {product.price}
-            {product.discount && (
+      <span className="text-3xl font-bold text-gray-900 flex flex-row justify-end items-center gap-x-10">
+        <div className={'flex flex-row items-center justify-start'}>
+          <svg className="text-gray-500 font-light mr-1 w-7 h-7" width="14" height="14"><use href="#toman"/></svg>
+          <label className={'text-blue-500'}>{product.price.toLocaleString()}</label>
+          {product.discount && (
             <>
-              <span className="text-lg text-gray-400 line-through ml-4">{product.discount}</span><Badge
-              className="ml-2 rounded-xl w-fit"
-              variant="destructive">{((1 - (product.discount / product.price)) * 100).toFixed(0)}%</Badge>
+              <span className="text-lg text-gray-400 line-through ml-4">{product.discount.toLocaleString()}</span>
+              <Badge className="ml-2 rounded-xl w-fit" variant="destructive">
+                {((1 - (product.discount / product.price)) * 100).toFixed(0)}%
+              </Badge>
             </>
           )}
-          </div>
-          <ProductRate rate={product.rating} count={product.numReviews}/></span>
-
+        </div>
+        <ProductRate rate={product.rating} count={product.numReviews}/>
+      </span>
         </div>
         <div className="mt-6">
           {/*<p>Stock: {product.countInStock}</p>*/}
         </div>
-        <div className="text-xl text-gray-700 mt-4">{product.description}</div>
+        <div className="text-xl text-gray-700 mt-4">
+          {product.description.map((desc, index) => (
+          <div key={index}>
+            <div className="mt-4 flex flex-row-reverse items-center">
+              <div className="font-normal">
+                <ChevronLeft />
+              </div>
+              <p>{desc}</p>
+            </div>
+            {/* Render Separator only between items */}
+            {index < product.description.length - 1 && (
+              <Separator className="border-t-4 border-gray-300" />
+            )}
+          </div>
+        ))}
+        </div>
       </div>
     </div>
+
   );
 }

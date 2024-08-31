@@ -7,7 +7,7 @@ import Auth from "@/components/Auth";
 export default function Navbar()  {
 
   return(
-    <nav className={`${vazirMatn.className} sticky z-[100] h-20 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/25 backdrop-blur-lg transition-all`}>
+    <nav className={`${vazirMatn.className} sticky z-[100] h-20 inset-x-0 top-0 w-screen border-b border-gray-200 bg-white/25 backdrop-blur-lg transition-all`}>
       <MaxWidthWrapper>
         <div className='flex h-20 items-center justify-between border-b border-zinc-200'>
           <Link href='/' className='flex z-40 font-semibold'>

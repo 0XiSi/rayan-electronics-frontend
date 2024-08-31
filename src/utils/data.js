@@ -1,4 +1,5 @@
 import {ChevronLeft} from 'lucide-react'
+import {Separator} from "@/components/ui/separator";
 export const data = {
     products: [
         {
@@ -9,32 +10,32 @@ export const data = {
             countInStock: 20 ,
             rating: 3.45 ,
             numReviews: 10 ,
-            description: <div className={'flex flex-col justify-end items-end'}>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>سایز: 75×90 سانتیمتر </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>امکانات: نمایش تایم بازی، نتیجه، ست، تایم اوت و فول، ساعت و تاریخ در حالت استند بای </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>جنس صفحه: پلکسی گلاس / شاسی چوبی </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>رشته های ورزشی: مناسب سالن های ورزشی چند منظوره (فوتسال و والیبال و…) </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>منبع تغذیه: برق 220 ولت شهری </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>نحوه کنترل: ریموت کنترل یا صفجه کلید وایرلس </p></div>
-            </div> ,
+            description: [
+              'سایز: 75×90 سانتیمتر',
+              'امکانات: نمایش تایم بازی، نتیجه، ست، تایم اوت و فول، ساعت و تاریخ در حالت استند بای',
+              'جنس صفحه: پلکسی گلاس / شاسی چوبی',
+              'رشته های ورزشی: مناسب سالن های ورزشی چند منظوره (فوتسال و والیبال و…)',
+              'منبع تغذیه: برق 220 ولت شهری',
+              'نحوه کنترل: ریموت کنترل یا صفحه کلید وایرلس',
+            ],
             discount: 11000000,
         },
         {
-            id:2,
-            name: 'scb2' ,
-            image: ['/ec80.jpg', '/ec80-life.jpg'] ,
-            price: 12000000 ,
-            countInStock: 20 ,
-            rating: 3.45 ,
-            numReviews: 10 ,
-            description: <div className={'flex flex-col justify-end items-end'}>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>سایز: 75×90 سانتیمتر </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>امکانات: نمایش تایم بازی، نتیجه، ست، تایم اوت و فول، ساعت و تاریخ در حالت استند بای </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>جنس صفحه: پلکسی گلاس / شاسی چوبی </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>رشته های ورزشی: مناسب سالن های ورزشی چند منظوره (فوتسال و والیبال و…) </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>منبع تغذیه: برق 220 ولت شهری </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>نحوه کنترل: ریموت کنترل یا صفجه کلید وایرلس </p></div>
-            </div> ,
+            id: 2,
+            name: 'scb2',
+            image: ['/ec80.jpg', '/ec80-life.jpg'],
+            price: 12000000,
+            countInStock: 20,
+            rating: 3.45,
+            numReviews: 10,
+            description: [
+              'سایز: 75×90 سانتیمتر',
+              'امکانات: نمایش تایم بازی، نتیجه، ست، تایم اوت و فول، ساعت و تاریخ در حالت استند بای',
+              'جنس صفحه: پلکسی گلاس / شاسی چوبی',
+              'رشته های ورزشی: مناسب سالن های ورزشی چند منظوره (فوتسال و والیبال و…)',
+              'منبع تغذیه: برق 220 ولت شهری',
+              'نحوه کنترل: ریموت کنترل یا صفحه کلید وایرلس',
+            ] ,
             discount: 11000000,
         },
         {
@@ -45,14 +46,14 @@ export const data = {
             countInStock: 20 ,
             rating: 3.45 ,
             numReviews: 10 ,
-            description: <div className={'flex flex-col justify-end items-end'}>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>سایز: 75×90 سانتیمتر </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>امکانات: نمایش تایم بازی، نتیجه، ست، تایم اوت و فول، ساعت و تاریخ در حالت استند بای </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>جنس صفحه: پلکسی گلاس / شاسی چوبی </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>رشته های ورزشی: مناسب سالن های ورزشی چند منظوره (فوتسال و والیبال و…) </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>منبع تغذیه: برق 220 ولت شهری </p></div>
-                <div className={'mt-4 flex flex-row-reverse items-center '}><ChevronLeft/><p>نحوه کنترل: ریموت کنترل یا صفجه کلید وایرلس </p></div>
-            </div> ,
+            description: [
+              'سایز: 75×90 سانتیمتر',
+              'امکانات: نمایش تایم بازی، نتیجه، ست، تایم اوت و فول، ساعت و تاریخ در حالت استند بای',
+              'جنس صفحه: پلکسی گلاس / شاسی چوبی',
+              'رشته های ورزشی: مناسب سالن های ورزشی چند منظوره (فوتسال و والیبال و…)',
+              'منبع تغذیه: برق 220 ولت شهری',
+              'نحوه کنترل: ریموت کنترل یا صفحه کلید وایرلس',
+            ],
             discount: 11000000,
         },
     ]
