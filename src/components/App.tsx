@@ -1,11 +1,11 @@
 import Navbar from "@/components/Navbar";
 
-export default function App({children, className}: {children:any, className:string}) {
+export default function App({children}: {children:any}) {
 
   return (
     <div>
       <Navbar/>
-      <div className={'flex justify-end items-end'}>{children}</div>
+      <div>{children}</div>
     </div>
   )
 }

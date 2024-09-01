@@ -12,18 +12,13 @@ import Spline from "@splinetool/react-spline/next";
 export default function Home() {
   const {products} = data
   return (
-    <>
-      <main className={`${vazirMatn.className} mb-auto bg-slate-50 relative`}>
-
+    <div className={'overflow-x-hidden'}>
+      <main className={`${vazirMatn.className} mb-auto bg-slate-50 flex flex-col`}>
         <section>
-          <MaxWidthWrapper
-            className={`mb-3 pt-10 lg:grid lg:grid-cols-3 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32`}>
+          <MaxWidthWrapper className={`mb-3 pt-10 lg:grid lg:grid-cols-3 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32`}>
             <div className='col-span-2 px-6 lg:px-0 lg:pt-4'>
               <div className='relative z-1 mx-auto text-center lg:text-left flex flex-col items-center lg:items-start'>
-
                 <div className='absolute w-28 left-0 -top-20 hidden lg:block z-10'>
-                  {/* i forgot this div right here in the video, it's purely visual gradient and looks nice */}
-
                   <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28'/>
                   <img src='/logo.png' className='w-full scale-150' alt={'logo'}/>
                 </div>
@@ -92,10 +87,7 @@ export default function Home() {
             </div>
           </MaxWidthWrapper>
         </section>
-        <div className={'flex justify-center w-full relative'}>
-        </div>
         <section>
-
           <MaxWidthWrapper className='py-24 z-1'>
             <div className='mb-12 px-6 lg:px-8'>
               <div className='mx-auto max-w-2xl sm:text-center'>
@@ -215,7 +207,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </MaxWidthWrapper>
           <ul className='mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit'>
             <li className='w-fit'>
               <BadgeCheck className='h-5 w-5 text-blue-600 inline mr-1.5'/>
@@ -233,7 +224,6 @@ export default function Home() {
               <Shield className='h-5 w-5 text-blue-600 inline mr-1.5'/>
               گارانتی
             </li>
-
             <div className='flex justify-center'>
               <Link
                 className={buttonVariants({
@@ -245,8 +235,10 @@ export default function Home() {
               </Link>
             </div>
           </ul>
+
+          </MaxWidthWrapper>
         </section>
       </main>
-    </>
+    </div>
   );
 }
