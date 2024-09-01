@@ -5,7 +5,7 @@ export default function App({children, className}: {children:any, className:stri
   return (
     <div>
       <Navbar/>
-      <div>{children}</div>
+      <div className={'flex justify-end items-end'}>{children}</div>
     </div>
   )
 }

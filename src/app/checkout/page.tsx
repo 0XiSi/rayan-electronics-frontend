@@ -2,7 +2,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {addItem, clearCart, removeItem} from "@/redux/slices/CartSlice";
 import { RootState } from '@/redux/store';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {vazirMatn} from "next-persian-fonts";
 import {X} from "lucide-react";
 import {useRouter} from "next/navigation";
@@ -69,7 +69,7 @@ export default function Checkout() {
 
 
   return (
-    <div className={`${vazirMatn.className} relative m-10`}>
+    <div className={`${vazirMatn.className} relative w-fit h-fit flex flex-col justify-end`}>
       <Breadcrumb className={'flex flex-col md:flex-row md:justify-end justify-end items-end m-10'}>
         <BreadcrumbList className={'text-right md:text-right pb-2 md:pb-0'}>
           <BreadcrumbItem>
@@ -90,79 +90,57 @@ export default function Checkout() {
       </BreadcrumbList>
     </Breadcrumb>
       <div className="bg-white p-1 rounded-lg shadow-xl text-center h-full">
-
-        <p className="text-lg font-semibold mt-10">جمع کل</p>
-        <p className="text-xl text-blue-600">
-          {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}{' '}
-          <sup className="text-gray-600">تومان</sup>
-        </p>
         {cartItems.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
-          <div className={'flex flex-col items-center justify-center md:flex-row-reverse md:justify-evenly md:items-baseline'}>
-            <div className={''}>
-              <table className="table-fixed">
-                <thead className={'w-fit'}>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="p-4">جمع جزء</th>
-                  <th className="p-4">تعداد</th>
-                  <th className="p-4">نام محصول</th>
-                  <th className="p-4">عکس محصول</th>
-                  <th className="p-4">حذف</th>
-                </tr>
-                </thead>
-                <tbody>
-                {cartItems.map((item) => (
-                  <tr key={item.id} className="border-b border-gray-200">
-                    <td className="p-4 text-blue-600 align-middle">
-                      {(item.price * item.quantity).toLocaleString()} <sup className="text-gray-600">تومان</sup>
-                    </td>
-                    <td className="p-4 align-middle">
-                      <div className="flex items-center justify-between">
-                        <div className="flex justify-center items-center">
-                          <button
-                            onClick={() => dispatch(addItem({...item, quantity: item.quantity - 1}))}
-                            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"
-                            disabled={item.quantity <= 1} // Disable button if quantity is 1 or less
-                          >
-                            -
-                          </button>
-                          <span className="mx-2 w-8 text-center">{item.quantity.toLocaleString()}</span>
-                          <button
-                            onClick={() => dispatch(addItem({...item, quantity: item.quantity + 1}))}
-                            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"
-                          >
-                            +
-                          </button>
-                        </div>
-
-
-
-                      </div>
-                    </td>
-                    <td className="p-4 text-blue-600 align-middle">
-                      <div className="text-left">
-                        <h2 className="text-lg font-semibold">{item.label}</h2>
-                      </div>
-                    </td>
-                    <td className="p-4 text-blue-600 align-middle"><img
+          <div
+            className={'flex flex-col items-center justify-center md:flex-row-reverse md:justify-evenly md:items-baseline'}>
+            <div className={'flex flex-col'}>
+              <div className={''}>{cartItems.map((item) => (
+                <div key={item.key}
+                     className={'border-b border-gray-200 flex flex-col items-end justify-end p-8 gap-y-2'}>
+                  <div className={'flex flex-row-reverse justify-start items-start'}>
+                    <img
                       src={item.imageSrc[0]}
                       alt={item.name}
-                      className="w-16 h-16 object-cover"
-                    />
-                    </td>
-                    <td className="p-4 text-blue-600 align-middle">
+                      className="w-1/3 h-1/3 sm:w-1/6 lg:h-1/6 object-cover"/>
+                    <div className="text-left m-2">
+                      <h2 className="font-light">{item.label}</h2>
+                    </div>
+                  </div>
+                  <div className={'flex flex-row-reverse gap-x-5'}>
+                    <div className="flex justify-center items-center border border-gray-300 rounded-xl">
                       <button
-                        onClick={() => dispatch(removeItem(item.id))}
-                        className="text-red-500"
+                        onClick={() => dispatch(addItem({...item, quantity: item.quantity - 1}))}
+                        className="text-gray-800 px-2 py-1 rounded-lg"
+                        disabled={item.quantity <= 1} // Disable button if quantity is 1 or less
                       >
-                        <X/>
+                        -
                       </button>
-                    </td>
-                  </tr>
-                ))}
-                </tbody>
-              </table>
+                      <span className="w-5 text-center">{item.quantity.toLocaleString()}</span>
+                      <button
+                        onClick={() => dispatch(addItem({...item, quantity: item.quantity + 1}))}
+                        className="text-gray-800 px-2 py-1 rounded-lg"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div className={'flex flex-row-reverse'}>
+                      <div className={'font-light'}>{(item.price * item.quantity).toLocaleString()}</div>
+                      <svg className="text-gray-500 h-4 w-4 mr-2">
+                        <use href="#toman"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              ))}</div>
+              <div className={'p-10'}>
+                <p className="text-lg font-semibold">جمع کل</p>
+                <p className="text-xl text-blue-600">
+                  {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}{' '}
+                  <sup className="text-gray-600">تومان</sup>
+                </p>
+              </div>
             </div>
             <div className={''}>
               <Form {...form}>

@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <body className={`${vazirMatn.className} min-h-screen flex flex-col`}>
+    <body className={`${vazirMatn.className} min-h-[calc(100vh-1px)] min-w-full flex flex-col`}>
     <svg style={{display: 'none'}} xmlns="http://www.w3.org/2000/svg">
       <symbol id="toman" viewBox="0 0 14 14">
         <path fillRule="evenodd" clipRule="evenodd"
