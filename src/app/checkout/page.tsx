@@ -93,13 +93,11 @@ export default function Checkout() {
         {cartItems.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
-          <div
-            className={'flex flex-col items-center justify-center md:flex-row-reverse md:justify-evenly md:items-baseline'}>
-            <div className={'flex flex-col'}>
+          <div className={'flex flex-col items-center justify-end w-fit md:flex-row-reverse md:justify-evenly md:items-baseline'}>
+            <div className={'w-fit flex flex-col'}>
               <div className={''}>{cartItems.map((item) => (
-                <div key={item.key}
-                     className={'border-b border-gray-200 flex flex-col items-end justify-end p-8 gap-y-2'}>
-                  <div className={'flex flex-row-reverse justify-start items-start'}>
+                <div key={item.key} className={'border-b border-gray-200 flex flex-col items-end justify-end p-8 gap-y-2'}>
+                  <div className={'flex flex-row-reverse justify-start items-start '}>
                     <img
                       src={item.imageSrc[0]}
                       alt={item.name}
@@ -108,7 +106,7 @@ export default function Checkout() {
                       <h2 className="font-light">{item.label}</h2>
                     </div>
                   </div>
-                  <div className={'flex flex-row-reverse gap-x-5'}>
+                  <div className={'flex flex-row-reverse gap-x-5 '}>
                     <div className="flex justify-center items-center border border-gray-300 rounded-xl">
                       <button
                         onClick={() => dispatch(addItem({...item, quantity: item.quantity - 1}))}
@@ -142,7 +140,7 @@ export default function Checkout() {
                 </p>
               </div>
             </div>
-            <div className={''}>
+            <div className={'m-10'}>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className=" grid grid-cols-3 gap-4">
                   <FormField control={form.control} name="name" render={({field}) => (
