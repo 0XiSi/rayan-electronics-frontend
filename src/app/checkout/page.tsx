@@ -73,10 +73,8 @@ export default function Checkout() {
       <Breadcrumb className={'flex flex-col md:flex-row md:justify-end justify-end items-end m-10'}>
         <BreadcrumbList className={'text-right md:text-right pb-2 md:pb-0'}>
           <BreadcrumbItem>
-             <BreadcrumbLink href={'/cart'}>
-               سبد خرید
-             </BreadcrumbLink>
-         </BreadcrumbItem>
+          پرداخت
+          </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>
@@ -85,8 +83,10 @@ export default function Checkout() {
           </BreadcrumbItem>
           <BreadcrumbSeparator/>
           <BreadcrumbItem>
-          پرداخت
-        </BreadcrumbItem>
+           <BreadcrumbLink href={'/cart'}>
+             سبد خرید
+           </BreadcrumbLink>
+         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
       <div className="bg-white p-1 rounded-lg shadow-xl text-center h-full">
@@ -99,8 +99,72 @@ export default function Checkout() {
         {cartItems.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
-          <div className={'flex flex-row-reverse justify-evenly items-baseline'}>
-            <div className={'mr-5 w-1/2'}>
+          <div className={'flex flex-col items-center justify-center md:flex-row-reverse md:justify-evenly md:items-baseline'}>
+            <div className={''}>
+              <table className="table-fixed">
+                <thead className={'w-fit'}>
+                <tr className="border-b-2 border-gray-200">
+                  <th className="p-4">جمع جزء</th>
+                  <th className="p-4">تعداد</th>
+                  <th className="p-4">نام محصول</th>
+                  <th className="p-4">عکس محصول</th>
+                  <th className="p-4">حذف</th>
+                </tr>
+                </thead>
+                <tbody>
+                {cartItems.map((item) => (
+                  <tr key={item.id} className="border-b border-gray-200">
+                    <td className="p-4 text-blue-600 align-middle">
+                      {(item.price * item.quantity).toLocaleString()} <sup className="text-gray-600">تومان</sup>
+                    </td>
+                    <td className="p-4 align-middle">
+                      <div className="flex items-center justify-between">
+                        <div className="flex justify-center items-center">
+                          <button
+                            onClick={() => dispatch(addItem({...item, quantity: item.quantity - 1}))}
+                            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"
+                            disabled={item.quantity <= 1} // Disable button if quantity is 1 or less
+                          >
+                            -
+                          </button>
+                          <span className="mx-2 w-8 text-center">{item.quantity.toLocaleString()}</span>
+                          <button
+                            onClick={() => dispatch(addItem({...item, quantity: item.quantity + 1}))}
+                            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"
+                          >
+                            +
+                          </button>
+                        </div>
+
+
+
+                      </div>
+                    </td>
+                    <td className="p-4 text-blue-600 align-middle">
+                      <div className="text-left">
+                        <h2 className="text-lg font-semibold">{item.label}</h2>
+                      </div>
+                    </td>
+                    <td className="p-4 text-blue-600 align-middle"><img
+                      src={item.imageSrc[0]}
+                      alt={item.name}
+                      className="w-16 h-16 object-cover"
+                    />
+                    </td>
+                    <td className="p-4 text-blue-600 align-middle">
+                      <button
+                        onClick={() => dispatch(removeItem(item.id))}
+                        className="text-red-500"
+                      >
+                        <X/>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+                </tbody>
+              </table>
+            </div>
+            <div className={''}>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className=" grid grid-cols-3 gap-4">
                   <FormField control={form.control} name="name" render={({field}) => (
@@ -130,68 +194,6 @@ export default function Checkout() {
                   تسویه حساب
                 </button>
               </Form>
-
-            </div>
-            <div className={'w-2/6 flex flex-col justify-evenly '}>
-              <table className=" text-center table-fixed ">
-                <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="p-4">جمع جزء</th>
-                  <th className="p-4">محصول</th>
-                </tr>
-                </thead>
-                <tbody>
-                {cartItems.map((item) => (
-                  <tr key={item.id} className="border-b border-gray-200">
-                    <td className="p-4 text-blue-600 align-middle">
-                      {(item.price * item.quantity).toLocaleString()} <sup className="text-gray-600">تومان</sup>
-                    </td>
-                    <td className="p-4 align-middle">
-                      <div className="flex items-center justify-between">
-                        <div className="flex justify-center items-center">
-                          <button
-                            onClick={() => dispatch(addItem({...item, quantity: item.quantity - 1}))}
-                            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"
-                            disabled={item.quantity <= 1} // Disable button if quantity is 1 or less
-                          >
-                            -
-                          </button>
-                          <span className="mx-2 w-8 text-center">{item.quantity.toLocaleString()}</span>
-                          <button
-                            onClick={() => dispatch(addItem({...item, quantity: item.quantity + 1}))}
-                            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"
-                          >
-                            +
-                          </button>
-                        </div>
-                        <div className="text-left">
-                          <h2 className="text-lg font-semibold">{item.label}</h2>
-                        </div>
-                        <img
-                          src={item.imageSrc}
-                          alt={item.name}
-                          className="w-16 h-16 object-cover"
-                        />
-                        <button
-                          onClick={() => dispatch(removeItem(item.id))}
-                          className="text-red-500"
-                        >
-                          <X/>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-                </tbody>
-              </table>
-              <div>
-                <div className="w-full">
-                  {/* Display the final price */}
-
-                  {/* Add any other relevant information or buttons */}
-
-                </div>
-              </div>
             </div>
           </div>
         )}
