@@ -17,7 +17,6 @@ export default function Navbar()  {
           <div className='h-full flex items-center space-x-4'>
             <Auth/>
               <Cart/>
-
           </div>
         </div>
       </MaxWidthWrapper>

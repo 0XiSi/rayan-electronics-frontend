@@ -18,16 +18,15 @@ export default function Home() {
           <MaxWidthWrapper className={`mb-3 pt-10 lg:grid lg:grid-cols-3 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32`}>
             <div className='col-span-2 px-6 lg:px-0 lg:pt-4'>
               <div className='relative z-1 mx-auto text-center lg:text-left flex flex-col items-center lg:items-start'>
-                <div className='absolute w-28 left-0 -top-20 hidden lg:block z-10'>
-                  <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28'/>
-                  <img src='/logo.png' className='w-full scale-150' alt={'logo'}/>
+                <div className='absolute w-28 left-0 -top-20 hidden lg:block z-10 size-110'>
+                  <img src='/logo.png' className='w-full scale-150'/>
                 </div>
                 <h1
                   className={`w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl z-10`}>ساخت
-                  تابلو <span className="bg-blue-500 px-2 text-white"> سفارشی</span> شما</h1>
+                  تابلو <span className="text-7xl font-extrabold text-blue-600"> سفارشی</span> شما</h1>
                 <p
                   className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap z-10">تابلو
-                  دیجیتال دلخواه خودتون رو از فروشگاه آنلاین یا با توجه به نیاز خودتون تابلو <span
+                  دیجیتال مدنظرتون  رو از فروشگاه آنلاین یا با توجه به نیاز ، تابلو <span
                     className="font-semibold">سفارشی </span>
                   خودتون رو دریافت کنید</p>
                 <ul className='mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start z-10'>
