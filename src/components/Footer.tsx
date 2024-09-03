@@ -14,7 +14,7 @@ export default function Footer() {
           </div>
           <div className='flex items-center justify-center'>
             <div className='flex space-x-8'>
-              <Link href='#' className='text-sm text-muted-foreground hover:text-gray-600'>تلفن: 09173924077</Link>
+              <Link href='#' className='text-sm text-muted-foreground hover:text-gray-600'>تلفن: *</Link>
             </div>
           </div>
         </div>

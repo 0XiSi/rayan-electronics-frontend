@@ -46,14 +46,14 @@ const ProductCard = ({ imageSrc, label, price, description, id, rating, numRevie
                     <svg className="text-gray-500 font-light mr-1 h-5 w-5" width="14" height="14">
                       <use href="#toman" />
                     </svg>
-                    <span>{price.toLocaleString()}</span>
+                    <span>{discount.toLocaleString()}</span>
                   </div>
                   <Badge className="scale-90 rounded-xl" variant="destructive">
                     {((1 - (discount / price)) * 100).toFixed(0)}%
                   </Badge>
                 </div>
                 <span className="line-through text-gray-400 text-sm ml-6 font-normal">
-                  {discount.toLocaleString()}
+                  {price.toLocaleString()}
                 </span>
               </div>
             </div>
