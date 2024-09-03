@@ -89,7 +89,7 @@ export default function Cart() {
                 </div>
               </div>
             ))}</div>
-            <div className="h-fit w-fit flex flex-col items-center justify-center md:m-2 md:p-2 border border-gray-300 rounded-xl">
+            <div className="h-fit w-fit flex flex-col items-center justify-center ml-8 p-4 mr-8 md:ml-40 md:p-2 md:mr-56 border border-gray-300 rounded-xl">
               <p className="text-md md:text-lg font-semibold">جمع کل</p>
               <p className="text-md md:text-xl text-blue-600 flex flex-row items-center mb-2">
               <svg className="text-gray-500 font-light mr-1 h-5 w-5">
@@ -104,61 +104,6 @@ export default function Cart() {
               ادامه
             </Button>
           </div>
-            {/*<table className="w-full text-center table-fixed">*/}
-            {/*  <thead>*/}
-            {/*  <tr className="border-b-2 border-gray-200">*/}
-            {/*    <th className="">جمع جزء</th>*/}
-            {/*    <th className="">تعداد</th>*/}
-            {/*    <th className="">محصول</th>*/}
-            {/*  </tr>*/}
-            {/*  </thead>*/}
-            {/*  <tbody>*/}
-            {/*  {cartItems.map((item) => (*/}
-            {/*    <tr key={item.id} className="border-b border-gray-200">*/}
-            {/*      <td className="text-blue-600 flex flex-row-reverse justify-center">*/}
-            {/*        <div className={'font-light'}>{(item.price * item.quantity).toLocaleString()}</div> <svg className="text-gray-500 h-4 w-4 m-2"><use href="#toman"/></svg>*/}
-            {/*      </td>*/}
-            {/*      <td className="align-middle">*/}
-            {/*        <div className="flex justify-center items-center">*/}
-            {/*          <button*/}
-            {/*            onClick={() => dispatch(addItem({...item, quantity: item.quantity - 1}))}*/}
-            {/*            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"*/}
-            {/*            disabled={item.quantity <= 1} // Disable button if quantity is 1 or less*/}
-            {/*          >*/}
-            {/*            -*/}
-            {/*          </button>*/}
-            {/*          <span className="w-5 text-center">{item.quantity.toLocaleString()}</span>*/}
-            {/*          <button*/}
-            {/*            onClick={() => dispatch(addItem({...item, quantity: item.quantity + 1}))}*/}
-            {/*            className="bg-gray-200 text-gray-800 px-2 py-1 rounded-lg"*/}
-            {/*          >*/}
-            {/*            +*/}
-            {/*          </button>*/}
-            {/*        </div>*/}
-            {/*      </td>*/}
-            {/*      <td className="align-middle">*/}
-            {/*        <div className="flex flex-row-reverse items-center justify-evenly">*/}
-            {/*          <img*/}
-            {/*            src={item.imageSrc[0]}*/}
-            {/*            alt={item.name}*/}
-            {/*            className="w-16 h-16 object-cover"*/}
-            {/*          />*/}
-            {/*          <div className="text-left">*/}
-            {/*            <h2 className="text-lg font-light">{item.label}</h2>*/}
-            {/*          </div>*/}
-            {/*        </div>*/}
-            {/*      </td>*/}
-
-            {/*      /!*<td><button*!/*/}
-            {/*      /!*  onClick={() => dispatch(removeItem(item.id))}*!/*/}
-            {/*      /!*  className="text-red-500"*!/*/}
-            {/*      /!*>*!/*/}
-            {/*      /!*  <X/>*!/*/}
-            {/*      /!*</button></td>*!/*/}
-            {/*    </tr>*/}
-            {/*  ))}*/}
-            {/*  </tbody>*/}
-            {/*</table>*/}
           </div>
         )}
       </div>
