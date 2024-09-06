@@ -3,7 +3,8 @@
   "short_name": "Rayan Electro",
   "theme_color": "#fff",
   "background_color": "#fff",
-  "display": "standalone",
+  "display": "fullscreen",
+
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
