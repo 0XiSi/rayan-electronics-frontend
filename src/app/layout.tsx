@@ -1,9 +1,8 @@
 import type {Metadata, Viewport} from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {vazirMatn} from "next-persian-fonts";
+import {vazirMatn} from 'next-persian-fonts/vazirmatn';
 import React from "react";
 import App from "@/components/App";
 import { StoreProvider } from "@/redux/StoreProvider";

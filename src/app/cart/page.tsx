@@ -2,7 +2,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {addItem, clearCart, removeItem} from "@/redux/slices/CartSlice";
 import React, {useEffect, useState} from "react";
-import {vazirMatn} from "next-persian-fonts";
+import {vazirMatn} from 'next-persian-fonts/vazirmatn';
 import {Smile, X} from "lucide-react";
 import {useRouter} from "next/navigation";
 import {

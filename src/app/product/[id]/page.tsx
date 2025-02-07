@@ -1,7 +1,8 @@
 'use client'
 import { data } from "@/utils/data";
 import {Badge} from "@/components/ui/badge";
-import ProductRate from "@/components/ProductRate";import {
+import ProductRate from "@/components/ProductRate";
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -11,9 +12,10 @@ import ProductRate from "@/components/ProductRate";import {
 import {Card, CardContent} from "@/components/ui/card";
 import {ChevronLeft} from "lucide-react";
 import {Separator} from "@/components/ui/separator";
-import {useRouter} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 
-export default function ProductDetails({params}) {
+export default function ProductDetails() {
+  const params = useParams();
   const id = params.id;
   console.log(id)
   const router = useRouter()
