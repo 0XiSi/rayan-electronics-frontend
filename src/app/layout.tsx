@@ -7,7 +7,7 @@ import React from "react";
 import App from "@/components/App";
 import { StoreProvider } from "@/redux/StoreProvider";
 import Spline from "@splinetool/react-spline/next";
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 
 const APP_NAME = "Rayan Electro";
@@ -75,7 +75,7 @@ export default function RootLayout({
       </StoreProvider>
     </div>
     <Footer/>
-    </body>
+    </body><Analytics/>
     </html>
   );
 }
