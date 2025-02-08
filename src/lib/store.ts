@@ -38,7 +38,7 @@ export async function addDevice(device: { name: string; allowance?: boolean }) {
   const { data, error } = await supabase
     .from("devices")
     .upsert([{ name: device.name, allowance: device.allowance ?? true }], {
-      onConflict: ["name"],
+      onConflict: "name",
     });
   if (error) throw error;
   return data;
