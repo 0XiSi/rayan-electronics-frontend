@@ -9,6 +9,7 @@ const supabase = createClient(
 // Get all devices
 export async function getDevices() {
   const { data, error } = await supabase.from("devices").select("*");
+  console.log(data)
   if (error) throw error;
   return data;
 }
@@ -33,16 +34,18 @@ export async function enableAllDevices() {
   return data;
 }
 
-// Add or update a device
 export async function addDevice(device: { name: string; allowance?: boolean }) {
   const { data, error } = await supabase
     .from("devices")
     .upsert([{ name: device.name, allowance: device.allowance ?? true }], {
       onConflict: "name",
-    });
+    })
+    .select(); // ✅ Ensure data is returned
+
   if (error) throw error;
   return data;
 }
+
 
 // Toggle a device's allowance
 export async function toggleDevice(name: string) {
